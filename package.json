@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"No tests specified!\" && exit 1",
+    "test": "npx tsc && cd test && npx tsc ./*.ts && cd .. && mocha",
     "build": "npx tsc"
   },
   "keywords": [
@@ -17,7 +17,9 @@
   "author": "arnitdo",
   "license": "MIT",
   "devDependencies": {
+    "@types/mocha": "^9.1.1",
     "@types/node": "^18.7.16",
+    "mocha": "^10.0.0",
     "typescript": "^4.8.3"
   }
 }

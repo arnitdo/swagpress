@@ -10,13 +10,13 @@ import {SwaggerPropertyError} from "../swagpress";
 export function validateURL(url: string, propertyName: string){
 	try {
 		let urlValue = new URL(url)
-	} catch (err: unknown){
+	} catch (err: any){
 		if (err.code == 'ERR_INVALID_URL'){
-			throw new SwaggerPropertyError({
-				propertyName: propertyName,
-				propertyValue: url,
-				extraDescription: 'Invalid URL Provided!'
-			})
+			throw new SwaggerPropertyError(
+				propertyName,
+				url,
+				'Invalid URL Provided!'
+			)
 		} else {
 			throw err
 		}
